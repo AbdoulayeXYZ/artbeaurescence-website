@@ -30,22 +30,43 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      setFormState({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
+    // Use Formspree to handle the form submission with your specific ID
+    fetch("https://formspree.io/f/mldjpalv", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: formState.name,
+        email: formState.email,
+        phone: formState.phone,
+        message: formState.message,
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          setIsSubmitting(false);
+          setIsSuccess(true);
+          setFormState({
+            name: "",
+            email: "",
+            phone: "",
+            message: "",
+          });
+          
+          // Reset success message after 3 seconds
+          setTimeout(() => {
+            setIsSuccess(false);
+          }, 3000);
+        } else {
+          throw new Error("Form submission failed");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setIsSubmitting(false);
+        // Handle error state here
       });
-
-      // Reset success message after 3 seconds
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 3000);
-    }, 1500);
   };
 
   const contactInfo = [
@@ -156,7 +177,7 @@ export function Contact() {
                             <h4 className="text-gray-900 font-medium group-hover:text-blue-900 transition-colors">
                               {item.title}
                             </h4>
-                            <p className="text-gray-600 group-hover:text-blue-700 transition-colors">
+                            <p className="text-gray-600 group-hover:text-blue-700 transition-colors break-words">
                               {item.content}
                             </p>
                           </div>

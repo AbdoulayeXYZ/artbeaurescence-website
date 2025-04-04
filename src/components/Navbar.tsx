@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { motion } from "framer-motion";
+import { Dialog, DialogTrigger, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -139,3 +140,17 @@ export function Navbar() {
     </motion.header>
   );
 }
+
+// Remove this part at the end of the file
+// Inside your Dialog component
+<Dialog>
+  <DialogTrigger>
+    {/* Your trigger content */}
+  </DialogTrigger>
+  <DialogContent>
+    {/* Add this line to fix the accessibility error */}
+    <DialogTitle className="sr-only">Menu Dialog</DialogTitle>
+    
+    {/* Your existing dialog content */}
+  </DialogContent>
+</Dialog>

@@ -48,8 +48,8 @@ const ContactCard = memo(({ info }: { info: any }) => (
       </div>
       <div>
         <h3 className="font-bold text-lg text-blue-900 mb-1">{info.title}</h3>
-        <p className="text-gray-700 font-medium mb-1">{info.content}</p>
-        <p className="text-gray-500 text-sm mb-4">{info.description}</p>
+        <p className="text-gray-700 font-medium text-xs mb-1">{info.content}</p>
+        <p className="text-gray-500 text-xs mb-4">{info.description}</p>
         {info.action && (
           <Link href={info.action} className="inline-flex items-center text-sm font-medium text-teal-600 hover:text-teal-800 transition-colors">
             {info.actionText} <ArrowRight className="ml-1 h-3 w-3" />
@@ -116,23 +116,45 @@ export function ContactShowcase() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      setFormState({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
+    // Use Formspree to handle the form submission
+    fetch("https://formspree.io/f/mldjpalv", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: formState.name,
+        email: formState.email,
+        phone: formState.phone,
+        subject: formState.subject || "Nouveau message",
+        message: formState.message,
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          setIsSubmitting(false);
+          setIsSuccess(true);
+          setFormState({
+            name: "",
+            email: "",
+            phone: "",
+            subject: "",
+            message: "",
+          });
+          
+          // Reset success message after 5 seconds
+          setTimeout(() => {
+            setIsSuccess(false);
+          }, 5000);
+        } else {
+          throw new Error("Form submission failed");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setIsSubmitting(false);
+        // Handle error state here
       });
-
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 5000);
-    }, 1500);
   };
 
   const contactInfo = [

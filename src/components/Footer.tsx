@@ -15,17 +15,27 @@ export function Footer() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Create email content for newsletter subscription
+    const subject = encodeURIComponent(`Newsletter Subscription`);
+    const body = encodeURIComponent(`
+      Nouvelle inscription à la newsletter:
+      Email: ${email}
+    `);
+    
+    // Open mailto link
+    window.location.href = `mailto:contact@artbeaurescence.sn?subject=${subject}&body=${body}`;
+  
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubscribed(true);
       setEmail("");
-
+  
       // Reset subscription status after 5 seconds
       setTimeout(() => {
         setIsSubscribed(false);
       }, 5000);
-    }, 1000);
+    }, 500);
   };
 
   const footerLinks = [
