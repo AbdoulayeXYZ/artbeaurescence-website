@@ -59,10 +59,24 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-blue-900 text-white pt-16 pb-8">
-      <div className="container mx-auto px-4 md:px-8">
+    <footer className="relative text-white pt-16 pb-8 overflow-hidden">
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute w-full h-full object-cover top-0 left-0 z-0"
+      >
+        <source src="/images/hero.mp4" type="video/mp4" />
+      </video>
+
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-blue-900/90 to-blue-950/95 z-1"></div>
+
+      <div className="container relative z-10 mx-auto px-4 md:px-8">
         <div className="grid md:grid-cols-5 gap-8 mb-12">
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 backdrop-blur-sm bg-blue-950/30 p-6 rounded-xl border border-white/10">
             <div className="flex items-center mb-6">
               <div className="relative h-10 w-40 mr-2">
                 <Image
@@ -77,9 +91,9 @@ export function Footer() {
               Art'Beau-Rescence est une entreprise d'innovation technologique créée en 2022 par de jeunes innovateurs Sénégalais pour parfaire le monde de demain.
             </p>
             <div className="space-y-4">
-              <h4 className="font-medium">Abonnez-vous à notre newsletter</h4>
+              <h4 className="font-medium text-teal-300">Abonnez-vous à notre newsletter</h4>
               {isSubscribed ? (
-                <div className="bg-teal-800 bg-opacity-30 rounded-lg p-3 text-teal-100">
+                <div className="bg-teal-500/20 backdrop-blur-sm rounded-lg p-3 text-teal-100 border border-teal-500/30">
                   Merci pour votre inscription! Vous recevrez prochainement nos actualités.
                 </div>
               ) : (
@@ -90,7 +104,7 @@ export function Footer() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Votre adresse email"
                     required
-                    className="flex-1 px-4 py-2 bg-blue-800 text-white placeholder-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    className="flex-1 px-4 py-2 bg-white/10 backdrop-blur-sm text-white placeholder-blue-200 rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                   />
                   <Button
                     type="submit"
@@ -105,14 +119,14 @@ export function Footer() {
           </div>
 
           {footerLinks.map((column) => (
-            <div key={column.title}>
-              <h4 className="font-medium text-lg mb-4">{column.title}</h4>
+            <div key={column.title} className="backdrop-blur-sm bg-blue-950/30 p-6 rounded-xl border border-white/10">
+              <h4 className="font-medium text-lg mb-4 text-teal-300">{column.title}</h4>
               <ul className="space-y-3">
                 {column.links.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-blue-100 hover:text-white transition-colors"
+                      className="text-blue-100 hover:text-teal-300 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -123,18 +137,18 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-blue-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-white/10 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center backdrop-blur-sm">
           <div className="text-blue-200 text-sm mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} Art'Beau-Rescence. Tous droits réservés.
           </div>
           <div className="flex gap-4">
-            <Link href="/mentions-legales" className="text-blue-200 hover:text-white text-sm">
+            <Link href="/mentions-legales" className="text-blue-200 hover:text-teal-300 text-sm">
               Mentions légales
             </Link>
-            <Link href="/politique-confidentialite" className="text-blue-200 hover:text-white text-sm">
+            <Link href="/politique-confidentialite" className="text-blue-200 hover:text-teal-300 text-sm">
               Politique de confidentialité
             </Link>
-            <Link href="/cgv" className="text-blue-200 hover:text-white text-sm">
+            <Link href="/cgv" className="text-blue-200 hover:text-teal-300 text-sm">
               CGV
             </Link>
           </div>
