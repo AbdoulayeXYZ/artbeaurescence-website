@@ -125,7 +125,7 @@ export function ProductShowcase() {
         ref={heroRef}
         className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-900 to-blue-950 text-white overflow-hidden"
       >
-        <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] bg-repeat opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/images/pattern.jpg')] bg-repeat opacity-10"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
         
@@ -519,15 +519,15 @@ export function ProductShowcase() {
                 {[
                   {
                     quote: "Nous avons réduit nos coûts opérationnels de 25% en seulement 6 mois d'utilisation de Karangué 221.",
-                    author: "Yancoba Diéme, Directeur des Opérations, Ministre du Transport"
+                    author: "Yancoba DIÉME, Ministre du Transport"
                   },
                   {
                     quote: "La plateforme nous a permis d'améliorer considérablement la sécurité de nos conducteurs et de réduire les incidents.",
-                    author: "Olivier Boucal, Responsable Flotte, Ministre de la Fonction Publique"
+                    author: "Olivier BOUCAL, Ministre de la Fonction Publique"
                   },
                   {
                     quote: "L'interface intuitive et les rapports détaillés nous ont aidés à prendre de meilleures décisions stratégiques.",
-                    author: "Amadou Diallo, CEO, Dakar Logistics"
+                    author: "Mamadou Lamine DIOP, CEO, BG Group"
                   }
                 ].map((testimonial, index) => (
                   <motion.div 
@@ -560,7 +560,7 @@ export function ProductShowcase() {
           >
             <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
-            <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] bg-repeat opacity-5"></div>
+            <div className="absolute inset-0 bg-[url('/images/pattern.jpg')] bg-repeat opacity-5"></div>
             
             <div className="relative z-10 max-w-4xl mx-auto text-center">
               <motion.h3 

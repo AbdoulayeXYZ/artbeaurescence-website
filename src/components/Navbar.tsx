@@ -148,8 +148,8 @@ export function Navbar() {
     {/* Your trigger content */}
   </DialogTrigger>
   <DialogContent>
-    {/* Add this line to fix the accessibility error */}
-    <DialogTitle className="sr-only">Menu Dialog</DialogTitle>
+    {/* Add this line to fix the accessibility issue */}
+    <DialogTitle className="sr-only">Menu</DialogTitle>
     
     {/* Your existing dialog content */}
   </DialogContent>

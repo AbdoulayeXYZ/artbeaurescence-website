@@ -119,7 +119,7 @@ export function ServicesShowcase() {
         ref={heroRef}
         className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-900 to-blue-950 text-white overflow-hidden"
       >
-        <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] bg-repeat opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/images/pattern.jpg')] bg-repeat opacity-10"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
         
@@ -378,20 +378,20 @@ export function ServicesShowcase() {
             {[
               {
                 quote: "Grâce à la solution de Video Telematics, nous avons réduit nos accidents de 45% en seulement 6 mois.",
-                author: "Yancoba Diéme",
+                author: "Yancoba DIÉME",
                 company: "Ministre du Transport",
                 image: "/images/testimonial1.jpg" // Placeholder
               },
               {
                 quote: "Le Vehicle Tracking nous a permis d'optimiser nos itinéraires et de réduire notre consommation de carburant de 20%.",
-                author: "Olivier Boucal",
+                author: "Olivier BOUCAL",
                 company: "Ministre de la Fonction Publique",
                 image: "/images/testimonial2.jpg" // Placeholder
               },
               {
                 quote: "La maintenance prédictive de Vehicle Telematics nous a fait économiser des millions en réparations évitées.",
-                author: "Amadou Diallo",
-                company: "Dakar Logistics",
+                author: "Mamadou Lamine DIOP",
+                company: "BG Group",
                 image: "/images/testimonial3.jpg" // Placeholder
               }
             ].map((testimonial, index) => (
@@ -439,7 +439,7 @@ export function ServicesShowcase() {
           >
             <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
-            <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] bg-repeat opacity-5"></div>
+            <div className="absolute inset-0 bg-[url('/images/pattern.jpg')] bg-repeat opacity-5"></div>
             
             <div className="relative z-10 max-w-4xl mx-auto text-center">
               <motion.h3 

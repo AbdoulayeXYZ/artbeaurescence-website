@@ -1,20 +1,36 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  // Enable image optimization
+  // Disable image optimization for static export compatibility
   images: {
     unoptimized: true,
-  },
-  // Ensure we can use API routes in development
-  // (they won't work in the static export, but will work in development)
-  rewrites: async () => {
-    return [
+    remotePatterns: [
       {
-        source: '/api/:path*',
-        destination: '/api/:path*',
+        protocol: 'https',
+        hostname: '**',
       },
-    ];
+    ],
+  },
+  // Suppression complète des rewrites en mode production pour éviter les avertissements avec output: export
+  // Les rewrites ne sont activés qu'en mode développement
+  async rewrites() {
+    if (process.env.NODE_ENV === 'development') {
+      return [
+        {
+          source: '/api/:path*',
+          destination: '/api/:path*',
+        },
+      ];
+    }
+    return [];
   },
 }
 
-module.exports = nextConfig
+// Ajout de l'analyseur de bundle en mode développement uniquement
+const withBundleAnalyzer = process.env.ANALYZE === 'true'
+  ? require('@next/bundle-analyzer')({
+      enabled: true,
+    })
+  : (config) => config;
+
+module.exports = withBundleAnalyzer(nextConfig)

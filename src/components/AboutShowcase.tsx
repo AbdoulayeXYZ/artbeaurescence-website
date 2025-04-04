@@ -207,7 +207,7 @@ export function AboutShowcase() {
         ref={heroRef}
         className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-900 to-blue-950 text-white overflow-hidden"
       >
-        <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] bg-repeat opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/images/pattern.jpg')] bg-repeat opacity-10"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
         
@@ -446,7 +446,7 @@ export function AboutShowcase() {
             className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 rounded-2xl p-10 text-white relative overflow-hidden mb-32"
           >
             {/* Decorative elements */}
-            <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5" />
+            <div className="absolute inset-0 bg-[url('/images/pattern.jpg')] opacity-5" />
             <div className="absolute top-0 left-0 w-full h-full bg-blue-500/10 backdrop-blur-[2px]" />
             
             <motion.div className="relative z-10">

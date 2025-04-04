@@ -275,7 +275,7 @@ export function About() {
           className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 rounded-2xl p-10 text-white relative overflow-hidden mb-20"
         >
           {/* Decorative elements */}
-          <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5" />
+          <div className="absolute inset-0 bg-[url('/images/pattern.jpg')] opacity-5" />
           <div className="absolute top-0 left-0 w-full h-full bg-blue-500/10 backdrop-blur-[2px]" />
           
           <motion.div className="relative z-10">

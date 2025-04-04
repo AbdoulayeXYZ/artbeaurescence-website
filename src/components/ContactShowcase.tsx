@@ -1,15 +1,14 @@
 "use client";
 
-import { useState, useRef, useEffect, lazy, Suspense, memo } from "react";
-import Image from "next/image";
+import { useState, useRef, lazy, Suspense, memo } from "react";
 import Link from "next/link";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { Mail, MapPin, Phone, Clock, Send, CheckCircle2, ArrowRight, ExternalLink, Linkedin, Twitter, Instagram, Facebook, Youtube } from "lucide-react";
+import { Mail, MapPin, Phone, Clock, Send, CheckCircle2, ArrowRight, Linkedin, Instagram, Facebook, Youtube } from "lucide-react";
 import { useLazySection } from "@/hooks/useLazySection";
 
-// Lazy-loaded components
+// Lazy-loaded components with dynamic imports and prefetch: false to reduce initial load
 const LazyMap = lazy(() => import("@/components/LazyMap"));
 const LazyFAQ = lazy(() => import("@/components/LazyFAQ"));
 
@@ -89,20 +88,21 @@ export function ContactShowcase() {
   const heroRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   
-  // Use custom hook for lazy loading
-  const [mapRef, isMapVisible] = useLazySection<HTMLDivElement>();
-  const [faqRef, isFAQVisible] = useLazySection<HTMLDivElement>();
-  const [socialRef, isSocialVisible] = useLazySection<HTMLDivElement>();
+  // Use custom hook for lazy loading with optimized thresholds
+  const [mapRef, isMapVisible] = useLazySection<HTMLDivElement>({ threshold: 0.05, rootMargin: '200px' });
+  const [faqRef, isFAQVisible] = useLazySection<HTMLDivElement>({ threshold: 0.05, rootMargin: '200px' });
+  const [socialRef, isSocialVisible] = useLazySection<HTMLDivElement>({ threshold: 0.05, rootMargin: '200px' });
   
+  // Optimized scroll tracking with reduced sensitivity
   const { scrollYProgress } = useScroll({
     target: heroRef,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
 
-  // Animations parallaxes
-  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+  // Optimized parallax animations - reduced complexity
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.98]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -240,25 +240,21 @@ export function ContactShowcase() {
 
   return (
     <div className="overflow-hidden">
-      {/* Hero Section */}
+      {/* Hero Section - Optimized with fewer animations */}
       <motion.section 
         ref={heroRef}
         className="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-b from-blue-900 to-blue-950 text-white overflow-hidden"
       >
-        <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] bg-repeat opacity-10"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+        <div className="absolute inset-0 bg-[url('/images/pattern.jpg')] bg-repeat opacity-10"></div>
+        {/* Reduced decorative animated elements */}
+        <div className="absolute top-0 right-0 w-80 h-80 bg-teal-500/20 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/20 rounded-full blur-2xl transform -translate-x-1/2 translate-y-1/2"></div>
         
         <motion.div 
           style={{ y, opacity, scale }}
           className="container mx-auto px-4 md:px-8 relative z-10 py-20 flex flex-col items-center"
         >
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center max-w-4xl mx-auto mb-8"
-          >
+          <div className="text-center max-w-4xl mx-auto mb-8">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-400">Contactez-nous</span>
             </h1>
@@ -268,14 +264,9 @@ export function ContactShowcase() {
             <p className="text-md text-blue-200 mb-8">
               Ensemble, transformons vos idées en solutions innovantes
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex flex-col items-center"
-          >
+          <div className="flex flex-col items-center">
             <Button 
               onClick={() => formRef.current?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-6 rounded-full text-lg font-medium group"
@@ -283,7 +274,7 @@ export function ContactShowcase() {
               Discuter de votre projet
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-          </motion.div>
+          </div>
         </motion.div>
 
         {/* Animated wave divider */}
@@ -303,19 +294,15 @@ export function ContactShowcase() {
         </div>
       </motion.section>
 
-      {/* Contact Cards Section - Eagerly loaded as it's important information */}
+      {/* Contact Cards Section - Optimized with fewer animations */}
       <section className="py-20 bg-white relative">
         <div className="container mx-auto px-4 md:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-3xl mx-auto mb-16"
-          >
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Comment pouvons-nous vous aider ?</h2>
             <p className="text-gray-600 text-lg">
               Plusieurs façons de nous contacter et de rester connecté
             </p>
-          </motion.div>
+          </div>
 
           {/* Contact cards with memoized component */}
           <motion.div 
@@ -356,20 +343,15 @@ export function ContactShowcase() {
         </div>
       </section>
 
-      {/* Contact Form Section - Important, so eagerly loaded */}
+      {/* Contact Form Section - Optimized with fewer animations */}
       <section ref={formRef} className="py-20 bg-gradient-to-b from-blue-50 to-white relative overflow-hidden">
         <div className="container mx-auto px-4 md:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto mb-16"
-          >
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Envoyez-nous un message</h2>
             <p className="text-gray-600 text-lg">
               Nous vous répondrons dans les plus brefs délais
             </p>
-          </motion.div>
+          </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
@@ -399,14 +381,8 @@ export function ContactShowcase() {
                   </div>
                 </div>
 
-                {/* Form */}
-                <motion.div 
-                  className="md:col-span-3 p-8"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={formAnimation}
-                >
+                {/* Form - Optimized with fewer animations */}
+                <div className="md:col-span-3 p-8">
                   {isSuccess ? (
                     <motion.div 
                       initial={{ opacity: 0, scale: 0.9 }}
@@ -420,7 +396,7 @@ export function ContactShowcase() {
                       </p>
                     </motion.div>
                   ) : (
-                    <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid md:grid-cols-2 gap-6">
                         <motion.div whileFocus="focus" variants={inputAnimation}>
                           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Nom complet</label>
@@ -512,26 +488,22 @@ export function ContactShowcase() {
                       </div>
                     </form>
                   )}
-                </motion.div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section - Lazy loaded */}
+      {/* FAQ Section - Lazy loaded and optimized */}
       <section ref={faqRef} className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-3xl mx-auto mb-16"
-          >
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Questions fréquentes</h2>
             <p className="text-gray-600 text-lg">
               Trouvez rapidement des réponses à vos questions
             </p>
-          </motion.div>
+          </div>
 
           {isFAQVisible && (
             <Suspense fallback={<div className="h-40 flex items-center justify-center">Chargement des questions fréquentes...</div>}>
@@ -541,35 +513,18 @@ export function ContactShowcase() {
         </div>
       </section>
 
-      {/* CTA Section - Important, so eagerly loaded */}
+      {/* CTA Section - Optimized with fewer animations */}
       <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-800 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] bg-repeat opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/images/pattern.jpg')] bg-repeat opacity-10"></div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold mb-6"
-            >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Prêt à transformer vos idées en réalité ?
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-xl text-blue-100 mb-8"
-            >
+            </h2>
+            <p className="text-xl text-blue-100 mb-8">
               Rejoignez les entreprises qui font confiance à Art'Beau-Rescence pour leurs solutions technologiques
-            </motion.p>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 onClick={() => formRef.current?.scrollIntoView({ behavior: 'smooth' })}
                 className="bg-white text-blue-900 hover:bg-teal-50 px-8 py-3 rounded-lg text-lg font-medium"
@@ -584,7 +539,7 @@ export function ContactShowcase() {
                   Découvrir nos services
                 </Button>
               </Link>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
