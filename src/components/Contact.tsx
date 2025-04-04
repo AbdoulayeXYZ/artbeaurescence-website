@@ -52,20 +52,20 @@ export function Contact() {
     {
       icon: <Phone className="w-5 h-5 text-teal-600" />,
       title: "Téléphone",
-      content: "+221 77 123 45 67",
+      content: "+221 33 999 99 99",
       description: "Du lundi au vendredi, 9h-18h"
     },
     {
       icon: <Mail className="w-5 h-5 text-teal-600" />,
       title: "Email",
-      content: "contact@artbeau-rescence.sn",
+      content: "contact@artbeaurescence.sn",
       description: "Nous répondons sous 24h"
     },
     {
       icon: <MapPin className="w-5 h-5 text-teal-600" />,
       title: "Adresse",
       content: "Dakar, Sénégal",
-      description: "Technopole, Sacré-Cœur"
+      description: "Ouakam"
     },
     {
       icon: <Clock className="w-5 h-5 text-teal-600" />,

@@ -64,11 +64,11 @@ export function About() {
     },
     {
       title: "AfriTech",
-      position: "4ème Position",
+      position: "4ème Prix",
       icon: Trophy,
       color: "text-blue-400",
       description: "Innovation Impact Continental",
-      image: "/images/trophies/trophy-silver.png"
+      image: "/images/trophies/trophy-bronze.png"
     },
     {
       title: "Dakar Innovation Days",
@@ -76,7 +76,7 @@ export function About() {
       icon: Trophy,
       color: "text-teal-400",
       description: "Innovation Locale Exceptionnelle",
-      image: "/images/trophies/trophy-bronze.png"
+      image: "/images/trophies/trophy-silver.png"
     },
     {
       title: "Concours National d'Innovation",
@@ -84,7 +84,7 @@ export function About() {
       icon: Trophy,
       color: "text-purple-400",
       description: "Excellence Nationale",
-      image: "/images/trophies/trophy-bronze.png"
+      image: "/images/trophies/trophy-silver.png"
     }
   ];
 
@@ -301,7 +301,14 @@ export function About() {
                       className="relative w-full h-full rounded-full bg-gradient-to-br from-white/10 to-transparent backdrop-blur-sm flex items-center justify-center border-2 border-white/20 group-hover:border-white/40 transition-all duration-300"
                       whileHover={{ scale: 1.05 }}
                     >
-                      <achievement.icon className={`w-12 h-12 ${achievement.color} drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.5)] transition-all duration-300`} />
+                      <div className="relative w-20 h-20">
+                        <Image
+                          src={achievement.image}
+                          alt={achievement.title}
+                          fill
+                          className="object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.5)] transition-all duration-300"
+                        />
+                      </div>
                     </motion.div>
                   </div>
 
