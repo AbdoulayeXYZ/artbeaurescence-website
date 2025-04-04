@@ -527,7 +527,7 @@ export function ProductShowcase() {
                   },
                   {
                     quote: "L'interface intuitive et les rapports détaillés nous ont aidés à prendre de meilleures décisions stratégiques.",
-                    author: "Mamadou Lamine DIOP, CEO, BG Group"
+                    author: "Mamadou Lamine DIOP, CEO BG Group"
                   }
                 ].map((testimonial, index) => (
                   <motion.div 
