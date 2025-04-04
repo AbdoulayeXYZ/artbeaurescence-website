@@ -88,15 +88,17 @@ export function Navbar() {
             </motion.div>
           ))}
           <motion.div variants={itemAnimation}>
-            <Button 
-              className={`${
-                scrolled
-                  ? "bg-blue-900 text-white hover:bg-teal-700"
-                  : "bg-transparent border-2 border-teal-400 text-white hover:bg-teal-600/20"
-              } transition-all duration-300`}
-            >
-              Contactez-nous
-            </Button>
+            <Link href="/contact">
+              <Button 
+                className={`${
+                  scrolled
+                    ? "bg-blue-900 text-white hover:bg-teal-700"
+                    : "bg-transparent border-2 border-teal-400 text-white hover:bg-teal-600/20"
+                } transition-all duration-300`}
+              >
+                Contactez-nous
+              </Button>
+            </Link>
           </motion.div>
         </nav>
 
@@ -122,9 +124,14 @@ export function Navbar() {
                   {item.label}
                 </Link>
               ))}
-              <Button className="mt-4 bg-teal-600 text-white hover:bg-teal-700">
-                Contactez-nous
-              </Button>
+              <Link href="/contact">
+                <Button 
+                  className="mt-4 bg-teal-600 text-white hover:bg-teal-700"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contactez-nous
+                </Button>
+              </Link>
             </nav>
           </SheetContent>
         </Sheet>

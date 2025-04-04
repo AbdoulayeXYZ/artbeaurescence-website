@@ -290,7 +290,7 @@ export function ContactShowcase() {
           >
             <div className="aspect-w-16 aspect-h-7 w-full h-[400px] relative">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.0507383271174!2d-17.4726!3d14.7145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDQyJzUyLjIiTiAxN8KwMjgnMjEuNCJX!5e0!3m2!1sfr!2ssn!4v1620000000000!5m2!1sfr!2ssn" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.0507383271174!2d-17.4958454!3d14.7249972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDQzJzMwLjAiTiAxN8KwMjknNDUuMCJX!5e0!3m2!1sfr!2ssn!4v1620000000000!5m2!1sfr!2ssn" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
