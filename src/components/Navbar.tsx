@@ -26,7 +26,7 @@ export function Navbar() {
     { label: "Produits", href: "/produits" },
     { label: "Services", href: "/services" },
     { label: "À propos", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    { label: "Team", href: "/equipe" },
   ];
 
   const navAnimation = {

@@ -23,7 +23,7 @@ export function Footer() {
     `);
     
     // Open mailto link
-    window.location.href = `mailto:contact@artbeaurescence.sn?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:artbeaurescence@gmail.com?subject=${subject}&body=${body}`;
   
     // Simulate form submission
     setTimeout(() => {
@@ -42,10 +42,10 @@ export function Footer() {
     {
       title: "Produits",
       links: [
-        { label: "AI-Karangué", href: "/produits/ai-karangue" },
-        { label: "Karangue Bag", href: "/produits/karangue-bag" },
-        { label: "Video Telematics", href: "/services/video-telematics" },
-        { label: "Vehicle Tracking", href: "/services/vehicle-tracking" },
+        { label: "Karangué 221", href: "/produits" },
+        { label: "Vehicle Telematics", href: "/services" },
+        { label: "Video Telematics", href: "/services" },
+        { label: "Vehicle Tracking", href: "/services" },
       ]
     },
     {
@@ -53,7 +53,7 @@ export function Footer() {
       links: [
         { label: "À propos", href: "/about" },
         { label: "Notre équipe", href: "/equipe" },
-        { label: "Carrières", href: "/carrieres" },
+        { label: "Carrières", href: "/contact" },
         { label: "Partenaires", href: "/partenaires" },
       ]
     },
@@ -62,8 +62,8 @@ export function Footer() {
       links: [
         { label: "Blog", href: "/blog" },
         { label: "Études de cas", href: "/etudes-de-cas" },
-        { label: "FAQ", href: "/faq" },
-        { label: "Support", href: "/support" },
+        { label: "FAQ", href: "/contact/faq" },
+        { label: "Support", href: "/contact" },
       ]
     }
   ];

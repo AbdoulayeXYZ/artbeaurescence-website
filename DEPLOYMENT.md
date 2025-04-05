@@ -1,3 +1,5 @@
+`bun run build && bunx serve@latest out`
+
 # Guide de déploiement - Art'Beau-Rescence
 
 Ce document détaille les étapes pour déployer le site web d'Art'Beau-Rescence sur différentes plateformes.
