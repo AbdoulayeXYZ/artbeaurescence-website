@@ -54,15 +54,15 @@ export function Footer() {
         { label: "À propos", href: "/about" },
         { label: "Notre équipe", href: "/equipe" },
         { label: "Carrières", href: "/contact" },
-        { label: "Partenaires", href: "/partenaires" },
+        { label: "Partenaires", href: "/partenaires" }, // Route non existante
       ]
     },
     {
       title: "Ressources",
       links: [
-        { label: "Blog", href: "/blog" },
-        { label: "Études de cas", href: "/etudes-de-cas" },
-        { label: "FAQ", href: "/contact/faq" },
+        { label: "Blog", href: "/blog" }, // Route non existante
+        { label: "Études de cas", href: "/etudes-de-cas" }, // Route non existante
+        { label: "FAQ", href: "/contact" }, 
         { label: "Support", href: "/contact" },
       ]
     }

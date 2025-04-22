@@ -73,7 +73,7 @@ export function Contact() {
     {
       icon: <Phone className="w-5 h-5 text-teal-600" />,
       title: "Téléphone",
-      content: "+221 33 999 99 99",
+      content: "+221 77 314 70 59",
       description: "Du lundi au vendredi, 9h-18h"
     },
     {

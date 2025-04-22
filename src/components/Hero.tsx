@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function Hero() {
   const fadeInUpAndZoom = {
@@ -72,19 +73,21 @@ export function Hero() {
             </motion.p>
 
             <motion.div 
-              variants={fadeInUpAndZoom}  // Changed from fadeInUp to fadeInUpAndZoom
+              variants={fadeInUpAndZoom}
               className="flex flex-wrap gap-4"
             >
-              <Button className="bg-teal-600 text-white hover:bg-teal-700 transform transition-all hover:scale-105 text-lg px-8 py-6">
-                Découvrir nos produits
-              </Button>
-              {/* <Button 
-                variant="outline" 
-                className="border-2 border-teal-400 text-teal-300 hover:bg-teal-600/20 transform transition-all hover:scale-105 text-lg px-8 py-6"
-              >
-                Contacter notre équipe
-              </Button> */}
+              <Link href="/produits">
+                <Button className="bg-teal-600 text-white hover:bg-teal-700 transform transition-all hover:scale-105 text-lg px-8 py-6">
+                  Découvrir nos produits
+                </Button>
+              </Link>
             </motion.div>
+            {/* <Button 
+              variant="outline" 
+              className="border-2 border-teal-400 text-teal-300 hover:bg-teal-600/20 transform transition-all hover:scale-105 text-lg px-8 py-6"
+            >
+              Contacter notre équipe
+            </Button> */}
           </div>
 
           {/* Decorative elements */}

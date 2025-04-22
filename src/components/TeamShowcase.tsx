@@ -71,7 +71,7 @@ export function TeamShowcase() {
       bio: "Passionné par l'automatisation industrielle et entrepreneur visionnaire, Cheikh Awa Balla Mbacké Cissé a fondé Art'Beau-Rescence avec l'ambition de révolutionner les processus industriels au Sénégal. Son expertise en gestion de projets technologiques et en systèmes d'automatisation lui permet de transformer des opérations complexes en solutions efficientes et évolutives. Son leadership et sa vision stratégique sont les moteurs d'innovation qui propulsent l'entreprise vers de nouveaux horizons.",
       image: "/images/team/founder1.png",
       socialLinks: {
-        linkedin: "https://www.linkedin.com/in/cheikhawaballambacké-cisse/",
+        linkedin: "https://www.linkedin.com/in/cheikh-awa-balla-mback%C3%A9-cisse-363342240/",
         email: "cheikhawaballambacke.cisse@artbeaurescence.sn"
       },
       skills: ["Gestion de projet agile", "Automatisation des processus industriels", "Programmation d'automates (PLC)"],
@@ -100,7 +100,7 @@ export function TeamShowcase() {
       bio: "Spécialiste en recherche et développement, El Hadji Samba NIANG apporte à Art'Beau-Rescence son expertise en conception de systèmes innovants. Sa vision technique et sa maîtrise des technologies émergentes sont essentielles pour transformer des idées audacieuses en solutions concrètes, particulièrement dans le domaine de la sécurité routière.",
       image: "/images/team/founder3.png",
       socialLinks: {
-        linkedin: "https://www.linkedin.com/in/elhadji-samba-niang/",
+        linkedin: "https://www.linkedin.com/in/by-sn/",
         email: "elhadjisamba.niang@artbeaurescence.sn"
       },
       skills: ["Innovation technologique", "Conception de systèmes AIoT", "Développement de prototypes"],
@@ -114,7 +114,7 @@ export function TeamShowcase() {
       bio: "Expert en logistique et en optimisation des chaînes d'approvisionnement, Moussa MBAYE assure l'efficacité opérationnelle d'Art'Beau-Rescence. Son expertise en gestion de la distribution et en coordination logistique est un atout majeur pour le déploiement des solutions technologiques de l'entreprise à travers le Sénégal.",
       image: "/images/team/founder4.png",
       socialLinks: {
-        linkedin: "https://www.linkedin.com/in/moussa-mbaye/",
+        linkedin: "https://www.linkedin.com/in/moussa-mbaye-b47a6b237/",
         email: "moussa.mbaye@artbeaurescence.sn"
       },
       skills: ["Gestion de chaîne logistique", "Optimisation des opérations", "Planification stratégique"],
@@ -142,7 +142,7 @@ export function TeamShowcase() {
       bio: "Experte en intelligence artificielle et en analyse de données, Fatima Fall NDIAYE pilote le développement des algorithmes qui alimentent la plateforme AI-Karangué. Sa passion pour l'application de l'IA aux défis de sécurité routière locale fait d'elle une force motrice dans l'innovation technologique sénégalaise.",
       image: "/images/team/founder5.png",
       socialLinks: {
-        linkedin: "https://www.linkedin.com/in/fatima-fall-ndiaye/",
+        linkedin: "https://www.linkedin.com/in/fatima-fall-ndiaye-90429125a/",
         email: "fatimafall.ndiaye@artbeaurescence.sn"
       },
       skills: ["Intelligence artificielle", "Analyse prédictive", "Vision par ordinateur"],
@@ -159,7 +159,7 @@ export function TeamShowcase() {
       bio: "En tant que Directrice des Opérations, Mariama FALL supervise l'ensemble des activités quotidiennes d'Art'Beau-Rescence. Ses compétences en ingénierie des données lui permettent d'optimiser les flux d'information et de transformer les données brutes en insights stratégiques pour guider les décisions opérationnelles de l'entreprise.",
       image: "/images/team/team1.png",
       socialLinks: {
-        linkedin: "https://www.linkedin.com/in/mariama-fall/",
+        linkedin: "https://www.linkedin.com/in/mariama-fall-54537b257/",
         email: "mariama.fall@artbeaurescence.sn"
       },
       skills: ["Gestion opérationnelle", "Ingénierie des données", "Business Intelligence"]
@@ -171,7 +171,7 @@ export function TeamShowcase() {
       bio: "Ndeye Aïssa DIOP allie expertise financière et science des données pour optimiser la gestion financière d'Art'Beau-Rescence. Son approche analytique permet d'identifier les opportunités de croissance tout en assurant la viabilité économique des projets innovants de l'entreprise.",
       image: "/images/team/team2.png",
       socialLinks: {
-        linkedin: "https://www.linkedin.com/in/ndeye-aissa-diop/",
+        linkedin: "https://www.linkedin.com/in/ndeye-aissa-diop-347050330/",
         email: "ndeyeaissa.diop@artbeaurescence.sn"
       },
       skills: ["Gestion financière", "Analyse prédictive", "Modélisation économique"]
@@ -183,7 +183,7 @@ export function TeamShowcase() {
       bio: "Directrice Technique visionnaire, Aïcha MBAYE pilote l'infrastructure technologique d'Art'Beau-Rescence. Sa double expertise en architecture système et en analyse de données lui permet de concevoir des solutions robustes et évolutives qui répondent aux défis complexes de la sécurité routière.",
       image: "/images/team/team3.png",
       socialLinks: {
-        linkedin: "https://www.linkedin.com/in/aicha-mbaye/",
+        linkedin: "https://www.linkedin.com/in/a%C3%AFcha-mbaye-175b57197/",
         email: "aicha.mbaye@artbeaurescence.sn"
       },
       skills: ["Architecture technique", "Analyse de données", "Gestion de l'innovation IT"]
@@ -195,7 +195,7 @@ export function TeamShowcase() {
       bio: "Stratège technologique et expert en cybersécurité, Mouhamadou SARR veille à l'alignement des initiatives d'Art'Beau-Rescence avec les objectifs à long terme. Ses compétences en tests de pénétration assurent que les solutions de l'entreprise respectent les plus hauts standards de sécurité informatique.",
       image: "/images/team/team4.png",
       socialLinks: {
-        linkedin: "https://www.linkedin.com/in/mouhamadou-sarr/",
+        linkedin: "https://www.linkedin.com/in/el-mahmoud-sarr-458905296/",
         email: "mouhamadou.sarr@artbeaurescence.sn"
       },
       skills: ["Planification stratégique", "Cybersécurité", "Gestion des risques"]
@@ -207,7 +207,7 @@ export function TeamShowcase() {
       bio: "Spécialiste du marketing digital, Fatou Bintou SARR orchestre la stratégie de communication et de positionnement d'Art'Beau-Rescence. Sa compréhension approfondie des dynamiques du marché technologique sénégalais lui permet de créer des campagnes percutantes qui valorisent l'impact social des innovations de l'entreprise.",
       image: "/images/team/team5.png",
       socialLinks: {
-        linkedin: "https://www.linkedin.com/in/fatou-bintou-sarr/",
+        linkedin: "https://www.linkedin.com/in/fatou-bintou-s-b48133304/",
         email: "fatoubintou.sarr@artbeaurescence.sn"
       },
       skills: ["Marketing digital", "Communication stratégique", "Gestion de marque"]
@@ -219,7 +219,7 @@ export function TeamShowcase() {
       bio: "En tant que Chef de Produit, Mominatou MBACKÉ assure le développement et l'évolution des solutions AI-Karangué. Son expertise en automatisation industrielle apporte une dimension pratique aux innovations d'Art'Beau-Rescence, garantissant des produits qui répondent précisément aux besoins des utilisateurs.",
       image: "/images/team/team6.png",
       socialLinks: {
-        linkedin: "https://www.linkedin.com/in/mominatou-mbacke/",
+        linkedin: "https://www.linkedin.com/in/mominatou-mbacke-ab4b3528a/",
         email: "mominatou.mbacke@artbeaurescence.sn"
       },
       skills: ["Gestion de produit", "Automatisation industrielle", "Expérience utilisateur"]
@@ -231,7 +231,7 @@ export function TeamShowcase() {
       bio: "Yacine DIOP coordonne l'environnement de travail chez Art'Beau-Rescence tout en contribuant au développement logiciel. Sa double compétence garantit une intégration harmonieuse entre les opérations administratives et les activités techniques de l'entreprise.",
       image: "/images/team/team7.png",
       socialLinks: {
-        linkedin: "https://www.linkedin.com/in/yacine-diop/",
+        linkedin: "https://www.linkedin.com/in/yacine-diop-026b4b325/",
         email: "yacine.diop@artbeaurescence.sn"
       },
       skills: ["Gestion administrative", "Développement logiciel", "Coordination d'équipe"]
@@ -243,7 +243,7 @@ export function TeamShowcase() {
       bio: "Experte en développement commercial, Khady NDIAYE pilote la stratégie de vente et d'expansion d'Art'Beau-Rescence. Sa formation en commerce international lui permet d'identifier des opportunités de déploiement des solutions de l'entreprise au-delà des frontières sénégalaises.",
       image: "/images/team/team8.png",
       socialLinks: {
-        linkedin: "https://www.linkedin.com/in/khady-ndiaye/",
+        linkedin: "https://www.linkedin.com/in/khady-ndiaye-b66b6b321/",
         email: "khady.ndiaye@artbeaurescence.sn"
       },
       skills: ["Développement commercial", "Négociation B2B", "Stratégie d'expansion internationale"]
@@ -255,7 +255,7 @@ export function TeamShowcase() {
       bio: "Au sein du département R&D, Yaye Ramatoulaye BA apporte son expertise en électromécanique pour le développement des composants matériels des solutions d'Art'Beau-Rescence. Sa compréhension des systèmes mécaniques et électroniques est essentielle dans la conception de dispositifs robustes pour la sécurité routière.",
       image: "/images/team/team9.png",
       socialLinks: {
-        linkedin: "https://www.linkedin.com/in/yaye-ramatoulaye-ba/",
+        linkedin: "https://www.linkedin.com/in/yaye-ramatoulaye-ba-niang-a66102172/",
         email: "yayeramatoulaye.ba@artbeaurescence.sn"
       },
       skills: ["Conception électromécanique", "Prototypage", "Tests de fiabilité"]
@@ -267,7 +267,7 @@ export function TeamShowcase() {
       bio: "Baye Daouda SEYE supervise l'infrastructure informatique d'Art'Beau-Rescence tout en contribuant au développement des solutions logicielles. Son expertise technique assure la fiabilité des systèmes d'information et la qualité des applications développées par l'entreprise.",
       image: "/images/team/team10.png",
       socialLinks: {
-        linkedin: "https://www.linkedin.com/in/baye-daouda-seye/",
+        linkedin: "https://www.linkedin.com/in/baye-daouda-seye-6088a2249/",
         email: "bayedaouda.seye@artbeaurescence.sn"
       },
       skills: ["Gestion d'infrastructure IT", "Développement logiciel", "Administration système"]
