@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ServicesShowcase } from "@/components/ServicesShowcase";
+import { KarangueShowcase } from "@/components/KarangueShowcase";
 
 export const metadata = {
   title: "Services | Art'Beau-Rescence",
@@ -12,6 +13,7 @@ export default function ServicesPage() {
     <main>
       <Navbar />
       <ServicesShowcase />
+      <KarangueShowcase />
       <Footer />
     </main>
   );

@@ -2,10 +2,12 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BarChart2, Clock, Globe, Shield, Truck, Users, ChevronDown } from "lucide-react";
+import { HardwareShowcase } from "@/components/HardwareShowcase";
 
 export function ProductShowcase() {
   const [activeTab, setActiveTab] = useState(0);
@@ -176,7 +178,12 @@ export function ProductShowcase() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
-            <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-6 text-lg">
+            <Link href="/tarifs">
+              <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-6 text-lg">
+                Voir nos tarifs
+              </Button>
+            </Link>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-6 text-lg">
               Demander une démo
             </Button>
           </motion.div>
@@ -547,6 +554,9 @@ export function ProductShowcase() {
           </div>
         </div>
       </section>
+
+      {/* Hardware Section */}
+      <HardwareShowcase />
 
       {/* CTA Section - Enhanced */}
       <section className="py-24 bg-white">

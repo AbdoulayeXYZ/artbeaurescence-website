@@ -25,6 +25,7 @@ export function Navbar() {
     { label: "Accueil", href: "/" },
     { label: "Produits", href: "/produits" },
     { label: "Services", href: "/services" },
+    { label: "Tarifs", href: "/tarifs" },
     { label: "À propos", href: "/about" },
     { label: "Team", href: "/equipe" },
   ];
