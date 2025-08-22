@@ -40,9 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Large media files
-*.mp4
+# Large media files (except mp4 which are handled by Git LFS)
 *.mov
 *.avi
 *.mkv
-/public/images/*.mp4
