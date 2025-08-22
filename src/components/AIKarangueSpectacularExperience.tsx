@@ -95,7 +95,7 @@ export function AIKarangueSpectacularExperience() {
       content: {
         title: "LA RÉALITÉ BRUTALE",
         description: "Une vidéo vaut mille mots. Préparez-vous à voir la vérité en face.",
-        videoUrl: "/images/BOX 1.mp4",
+        videoUrl: "/images/optimized/BOX_1_web.mp4",
         message: "Chaque jour d'attente a un coût humain"
       }
     },
@@ -110,7 +110,7 @@ export function AIKarangueSpectacularExperience() {
       content: {
         title: "LE FACTEUR HUMAIN",
         description: "Un simple repos aurait pu éviter l'irréparable. ",
-        videoUrl: "/images/BOX 2.mp4",
+        videoUrl: "/images/optimized/BOX_2_web.mp4",
         message: "Faisons en sorte que ça soit la dernière fois."
       }
     },
