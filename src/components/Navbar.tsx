@@ -25,6 +25,7 @@ export function Navbar() {
     { label: "Accueil", href: "/" },
     { label: "Produits", href: "/produits" },
     { label: "Services", href: "/services" },
+    { label: "AI-Karangué", href: "/ai-karangue", special: true },
     { label: "Tarifs", href: "/tarifs" },
     { label: "À propos", href: "/about" },
     { label: "Team", href: "/equipe" },
@@ -58,7 +59,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-2">
             <div className="relative w-40 h-10">
               <Image
-                src="/images/logo.png"
+                src="/images/favicon.png"
                 alt="Art'Beau-Rescence"
                 fill
                 className={`object-contain transition-all duration-500 ${
@@ -81,10 +82,17 @@ export function Navbar() {
               <Link
                 href={item.href}
                 className={`text-sm font-medium transition-colors relative group ${
-                  scrolled ? "text-gray-700 hover:text-blue-800" : "text-white hover:text-teal-300"
+                  item.special
+                    ? scrolled
+                      ? "text-teal-600 hover:text-teal-800 font-semibold"
+                      : "text-teal-300 hover:text-teal-100 font-semibold"
+                    : scrolled ? "text-gray-700 hover:text-blue-800" : "text-white hover:text-teal-300"
                 }`}
               >
                 {item.label}
+                {item.special && (
+                  <span className="absolute -top-1 -right-1 w-2 h-2 bg-teal-400 rounded-full animate-pulse" />
+                )}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-500 transition-all group-hover:w-full" />
               </Link>
             </motion.div>
@@ -120,10 +128,15 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-lg font-medium text-white/90 transition-colors hover:text-teal-300"
+                  className={`text-lg font-medium transition-colors hover:text-teal-300 relative ${
+                    item.special ? "text-teal-300 font-semibold" : "text-white/90"
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
+                  {item.special && (
+                    <span className="absolute -top-1 -right-1 w-2 h-2 bg-teal-400 rounded-full animate-pulse" />
+                  )}
                 </Link>
               ))}
               <Link href="/contact">
@@ -142,16 +155,3 @@ export function Navbar() {
   );
 }
 
-// Remove this part at the end of the file
-// Inside your Dialog component
-<Dialog>
-  <DialogTrigger>
-    {/* Your trigger content */}
-  </DialogTrigger>
-  <DialogContent>
-    {/* Add this line to fix the accessibility issue */}
-    <DialogTitle className="sr-only">Menu</DialogTitle>
-    
-    {/* Your existing dialog content */}
-  </DialogContent>
-</Dialog>

@@ -76,8 +76,19 @@ export function Hero() {
               variants={fadeInUpAndZoom}
               className="flex flex-wrap gap-4"
             >
+              <Link href="/ai-karangue">
+                <Button className="bg-gradient-to-r from-teal-600 to-emerald-600 text-white hover:from-teal-700 hover:to-emerald-700 transform transition-all hover:scale-105 text-lg px-8 py-6 shadow-lg hover:shadow-xl relative overflow-hidden group">
+                  <span className="relative z-10">Vivre l'expérience AI-Karangué</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-emerald-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                  <span className="absolute -top-1 -right-1 w-3 h-3 bg-teal-400 rounded-full animate-pulse"></span>
+                </Button>
+              </Link>
+              
               <Link href="/produits">
-                <Button className="bg-teal-600 text-white hover:bg-teal-700 transform transition-all hover:scale-105 text-lg px-8 py-6">
+                <Button 
+                  variant="outline" 
+                  className="border-2 border-teal-400 text-teal-300 hover:bg-teal-600/20 transform transition-all hover:scale-105 text-lg px-8 py-6"
+                >
                   Découvrir nos produits
                 </Button>
               </Link>
