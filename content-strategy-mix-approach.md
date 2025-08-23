@@ -117,7 +117,7 @@ Build sur mesure selon besoins spécifiques
 **Pain points :** Coûts cachés, justifier investissements
 **Message clé :** "ROI 10:1 garanti en 12 mois"
 
-### 🚀 FUNNEL DE CONVERSION OPTIMISÉ
+###  FUNNEL DE CONVERSION OPTIMISÉ
 
 #### AWARENESS (Conscience du problème)
 - Blog : "Les 7 coûts cachés de votre flotte au Sénégal"
