@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -17,6 +17,17 @@ interface ExperienceState {
   showFinalSpeech: boolean;
   isTransitioning: boolean;
   showingBoxTitle: number | null;
+}
+
+interface ConversationMessage {
+  sender: string;
+  avatar: string;
+  message: string;
+  isUser: boolean;
+  isSystem?: boolean;
+  isAdmin?: boolean;
+  isSpecial?: boolean;
+  timestamp: string;
 }
 
 export function AIKarangueSpectacularExperience() {
@@ -1194,7 +1205,7 @@ function FinalSpeechComponent({ onStartJourney }: { onStartJourney: () => void }
   const [showContinueButton, setShowContinueButton] = useState(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
-  const conversation = [
+  const conversation: ConversationMessage[] = useMemo(() => [
     {
       sender: "MITTA",
       avatar: "/images/icone-mitta.jpeg",
@@ -1458,7 +1469,7 @@ function FinalSpeechComponent({ onStartJourney }: { onStartJourney: () => void }
       timestamp: "14:49"
     },
  
-  ];
+  ], []);
 
   // Fonction pour scroller automatiquement vers le bas
   const scrollToBottom = () => {
@@ -1494,7 +1505,7 @@ function FinalSpeechComponent({ onStartJourney }: { onStartJourney: () => void }
         setShowContinueButton(true);
       }, 3000);
     }
-  }, [currentMessageIndex, conversation.length]);
+  }, [currentMessageIndex, conversation.length, conversation]);
 
   return (
     <motion.div
