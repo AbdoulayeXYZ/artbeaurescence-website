@@ -130,7 +130,7 @@ export function AIKarangueSpectacularExperience() {
       accentColor: "text-blue-200",
       content: {
         title: "LE MOMENT DE VÉRITÉ",
-        description: "Vous venez de voir la réalité. Vous venez de voir la solution.",
+        description: "Vous venez de voir la réalité. Vous venez de voir les causes.",
         message: `L'inaction coûte parfois plus cher que l'action.
 
 Aujourd'hui, vous avez le pouvoir de changer cela.

@@ -132,7 +132,7 @@ export function AIKarangueExperience() {
       content: {
         type: 'conscience',
         title: "Le Moment de Vérité",
-        description: "Vous venez de voir la réalité. Vous venez de voir la solution.",
+        description: "Vous venez de voir la réalité. Vous venez de voir les causes.",
         finalMessage: "L'inaction coûte parfois plus cher que l'action.\n\nAujourd'hui, vous avez le pouvoir de changer cela.\n\nLa question n'est plus \"Pourquoi ?\" mais \"Pourquoi pas maintenant ?\""
       }
     }
