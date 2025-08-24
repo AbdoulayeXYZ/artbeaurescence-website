@@ -788,6 +788,7 @@ La question n'est plus "Pourquoi ?" mais "Pourquoi pas maintenant ?"`
                 <SpectacularBoxContent 
                   content={boxesContent[experienceState.currentBox].content}
                   onClose={closeBox}
+                  boxIndex={experienceState.currentBox}
                 />
               </motion.div>
             </motion.div>
@@ -831,7 +832,6 @@ La question n'est plus "Pourquoi ?" mais "Pourquoi pas maintenant ?"`
               >
                 Vous avez découvert les trois révélations qui changent tout.
                 <br />
-                Il est maintenant temps d'entendre un message qui pourrait transformer votre vision à jamais.
               </motion.p>
               
               <motion.div
@@ -847,7 +847,7 @@ La question n'est plus "Pourquoi ?" mais "Pourquoi pas maintenant ?"`
                   }}
                   className="bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white px-12 py-6 text-2xl font-black rounded-full shadow-2xl shadow-teal-500/50 border-2 border-teal-400/30 transform hover:scale-110 transition-all duration-300"
                 >
-                  🎭 PASSER AU DISCOURS 🎭
+                  PASSER À LA SUITE
                 </Button>
                 
                 {/* Effet de lueur pulsante */}
@@ -1196,139 +1196,268 @@ function FinalSpeechComponent({ onStartJourney }: { onStartJourney: () => void }
 
   const conversation = [
     {
-      sender: "Dem Dikk",
-      avatar: "/images/icone-bus.png",
-      message: "Vous proposez quoi encore, un GPS ? 🤨",
+      sender: "MITTA",
+      avatar: "/images/icone-mitta.jpeg",
+      message: "**MITTA** a ajouté Dem Dikk",
+      isUser: false,
+      isSystem: true,
+      timestamp: "14:30"
+    },
+    {
+      sender: "MITTA",
+      avatar: "/images/icone-mitta.jpeg",
+      message: "**MITTA** a ajouté AFTU",
+      isUser: false,
+      isSystem: true,
+      timestamp: "14:30"
+    },
+    {
+      sender: "MITTA",
+      avatar: "/images/icone-mitta.jpeg",
+      message: "**MITTA** a ajouté Car Rapid",
+      isUser: false,
+      isSystem: true,
+      timestamp: "14:30"
+    },
+    {
+      sender: "MITTA",
+      avatar: "/images/icone-mitta.jpeg",
+      message: "**MITTA** a ajouté AI-Karangué",
+      isUser: false,
+      isSystem: true,
+      timestamp: "14:31"
+    },
+    {
+      sender: "MITTA",
+      avatar: "/images/icone-mitta.jpeg",
+      message: "Salut tout le monde. J'ai une solution innovante à vous présenter pour améliorer notre sécurité routière.",
+      isUser: true,
+      isAdmin: true,
+      timestamp: "14:31"
+    },
+    {
+      sender: "Car Rapid",
+      avatar: "/images/icone-carrapide.png",
+      message: "Encore une nouvelle technologie ?",
       isUser: true,
       timestamp: "14:32"
     },
     {
-      sender: "AI-Karangué",
-      avatar: "/images/logo-annimation.png",
-      message: "Non 😂… un GPS surveille.",
-      isUser: false,
+      sender: "Dem Dikk",
+      avatar: "/images/icone-bus.png",
+      message: "Oui, c'est quoi cette fois ?",
+      isUser: true,
       timestamp: "14:32"
+    },
+    {
+      sender: "Car Rapid",
+      avatar: "/images/icone-carrapide.png",
+      message: "C'est sûr qu'ils vont installer des trucs sur nos portables pour nous surveiller?",
+      isUser: true,
+      timestamp: "14:35"
     },
     {
       sender: "AI-Karangué",
       avatar: "/images/logo-annimation.png",
-      message: "Nous, on donne la **tranquillité d'esprit** 💆🏾‍♂️",
+      message: "Bonjour à tous. Non, ce n'est pas du tout ça.",
       isUser: false,
       timestamp: "14:33"
     },
     {
-      sender: "Dem Dikk",
-      avatar: "/images/icone-bus.png",
-      message: "Tranquillité d'esprit ? Expliquez-moi ça 😅",
+      sender: "AI-Karangué",
+      avatar: "/images/logo-annimation.png",
+      message: "Nous proposons une solution complète de gestion de flotte.",
+      isUser: false,
+      timestamp: "14:33"
+    },
+    {
+      sender: "AI-Karangué",
+      avatar: "/images/logo-annimation.png",
+      message: "Le voyageur monte dans vos bus et aura la tranquilité d'esprit !",
+      isUser: false,
+      timestamp: "14:33"
+    },
+    {
+      sender: "AI-Karangué",
+      avatar: "/images/logo-annimation.png",
+      message: "Le conducteur roule et aura la tranquilité d'esprit !",
+      isUser: false,
+      timestamp: "14:33"
+    },
+    {
+      sender: "AI-Karangué",
+      avatar: "/images/logo-annimation.png",
+      message: "Le gestionnaire de flotte contrôle et aura la tranquilité d'esprit !",
+      isUser: false,
+      timestamp: "14:33"
+    },
+    {
+      sender: "AFTU",
+      avatar: "/images/icone-aftu.png",
+      message: "Ça surveille les chauffeurs ? Ils vont pas aimer ça.",
       isUser: true,
       timestamp: "14:34"
     },
     {
       sender: "AI-Karangué",
       avatar: "/images/logo-annimation.png",
-      message: "Facile 👇\n\n• Le passager monte → il est serein 🧘🏾‍♀️\n• Le chauffeur roule → il est accompagné 🚍\n• Le gestionnaire regarde → il sait que tout est sous contrôle 📊",
+      message: "Au contraire, ça les protège.",
       isUser: false,
       timestamp: "14:35"
     },
     {
-      sender: "Dem Dikk",
-      avatar: "/images/icone-bus.png",
-      message: "Hmm… ça sonne joli mais c'est pas trop idéaliste ?",
+      sender: "Car Rapid",
+      avatar: "/images/icone-carrapide.png",
+      message: "C'est intéressant ça. Nous aussi on peut tester ?",
+      isUser: true,
+      timestamp: "14:35"
+    },
+    {
+      sender: "MITTA",
+      avatar: "/images/icone-mitta.jpeg",
+      message: "Pour l'instant, on commence avec Dem Dikk. C'est notre partenaire pilote.",
+      isUser: true,
+      isAdmin: true,
+      timestamp: "14:36"
+    },
+    {
+      sender: "MITTA",
+      avatar: "/images/icone-mitta.jpeg",
+      message: "**MITTA** a retiré Car Rapid du groupe",
+      isUser: false,
+      isSystem: true,
+      timestamp: "14:36"
+    },
+    {
+      sender: "AFTU",
+      avatar: "/images/icone-aftu.png",
+      message: "Pourquoi vous l'avez retiré ?",
       isUser: true,
       timestamp: "14:37"
     },
     {
-      sender: "AI-Karangué",
-      avatar: "/images/logo-annimation.png",
-      message: "Pas du tout 🙅🏾‍♂️",
-      isUser: false,
+      sender: "MITTA",
+      avatar: "/images/icone-mitta.jpeg",
+      message: "On veut rester concentrés.",
+      isUser: true,
+      isAdmin: true,
       timestamp: "14:37"
     },
     {
-      sender: "AI-Karangué",
-      avatar: "/images/logo-annimation.png",
-      message: "On commence petit. 10 véhicules → des faits concrets.\nSi ça marche, tout le pays peut suivre.",
-      isUser: false,
+      sender: "Dem Dikk",
+      avatar: "/images/icone-bus.png",
+      message: "OK mais concrètement, ça marche comment votre truc ?",
+      isUser: true,
       timestamp: "14:38"
     },
     {
+      sender: "AI-Karangué",
+      avatar: "/images/logo-annimation.png",
+      message: "On installe des devices dans vos bus. Et on vous donne un logiciel pour tout controler à distance.",
+      isUser: false,
+      timestamp: "14:39"
+    },
+    {
+      sender: "AI-Karangué",
+      avatar: "/images/logo-annimation.png",
+      message: "le système aide le conducteur dans sa conduite, et assure qu'il ne fasse pas d'erreur.",
+      isUser: false,
+      timestamp: "14:39"
+    },
+    {
       sender: "Dem Dikk",
       avatar: "/images/icone-bus.png",
-      message: "Et vous, vous gagnez quoi là-dedans ?",
+      message: "Et vous, qu'est-ce que vous gagnez là-dedans ?",
       isUser: true,
       timestamp: "14:40"
     },
     {
       sender: "AI-Karangué",
       avatar: "/images/logo-annimation.png",
-      message: "Honnêtement ? Pas l'argent 💸",
-      isUser: false,
-      timestamp: "14:40"
-    },
-    {
-      sender: "AI-Karangué",
-      avatar: "/images/logo-annimation.png",
-      message: "Notre vrai gain → que demain on dise : *\"au Sénégal, la route ne tue plus.\"*\n\nÇa, c'est priceless 🔥",
+      message: "Honnêtement ? Pour l'instant, rien financièrement.",
       isUser: false,
       timestamp: "14:41"
     },
     {
+      sender: "AI-Karangué",
+      avatar: "/images/logo-annimation.png",
+      message: "Notre objectif, c'est qu'un jour on puisse dire : au Sénégal, la route ne tue plus.",
+      isUser: false,
+      timestamp: "14:41"
+    },
+    {
+      sender: "AFTU",
+      avatar: "/images/icone-aftu.png",
+      message: "C'est beau tout ça, êtes vous sûr que ça marche?",
+      isUser: true,
+      timestamp: "14:42"
+    },
+    {
+      sender: "MITTA",
+      avatar: "/images/icone-mitta.jpeg",
+      message: "Oui c'est AI-Karangué qu'en même",
+      isUser: true,
+      isAdmin: true,
+      timestamp: "14:43"
+    },
+    {
       sender: "Dem Dikk",
       avatar: "/images/icone-bus.png",
-      message: "Pourquoi nous en premier ?",
+      message: "Et pourquoi nous en premier ?",
       isUser: true,
-      timestamp: "14:43"
-    },
-    {
-      sender: "AI-Karangué",
-      avatar: "/images/logo-annimation.png",
-      message: "Parce que vous êtes **Dem Dikk** 🇸🇳",
-      isUser: false,
-      timestamp: "14:43"
-    },
-    {
-      sender: "AI-Karangué",
-      avatar: "/images/logo-annimation.png",
-      message: "Vous êtes la vitrine du transport.\nSi vous ouvrez la voie → les autres suivent.\nVous devenez les pionniers ",
-      isUser: false,
       timestamp: "14:44"
     },
     {
-      sender: "Dem Dikk",
-      avatar: "/images/icone-bus.png",
-      message: "Et si ça marche pas ?",
-      isUser: true,
-      timestamp: "14:46"
+      sender: "AI-Karangué",
+      avatar: "/images/logo-annimation.png",
+      message: "Parce que vous êtes Dem Dikk 🇸🇳",
+      isUser: false,
+      timestamp: "14:45"
     },
     {
       sender: "AI-Karangué",
       avatar: "/images/logo-annimation.png",
-      message: "Alors au pire vous aurez essayé d'innover.",
+      message: "Et que vous croyez à l'innovation.",
       isUser: false,
-      timestamp: "14:46"
+      timestamp: "14:45"
     },
     {
       sender: "AI-Karangué",
       avatar: "/images/logo-annimation.png",
-      message: "Mais si ça marche… vous aurez offert au Sénégal la plus belle richesse :\n👉 la **tranquillité d'esprit** ❤️",
+      message: "Les autres suivront",
       isUser: false,
-      timestamp: "14:47"
+      timestamp: "14:45"
+    },
+    {
+      sender: "AFTU",
+      avatar: "/images/icone-aftu.png",
+      message: "Et nous, on fait quoi pendant ce temps ?",
+      isUser: true,
+      timestamp: "14:46"
+    },
+    {
+      sender: "MITTA",
+      avatar: "/images/icone-mitta.jpeg",
+      message: "**MITTA** a retiré AFTU du groupe",
+      isUser: false,
+      isSystem: true,
+      timestamp: "14:36"
     },
     {
       sender: "Dem Dikk",
       avatar: "/images/icone-bus.png",
-      message: "Concrètement, on fait comment pour commencer ?",
+      message: "Bon, concrètement, on fait comment pour commencer ?",
       isUser: true,
+      timestamp: "14:48"
+    },
+    {
+      sender: "AI-Karangué",
+      avatar: "/images/logo-annimation.png",
+      message: "juste dites OUI !",
+      isUser: false,
       timestamp: "14:49"
     },
-    {
-      sender: "Vérité",
-      avatar: "⚡",
-      message: "Simple ! Avant le Gamou 2024 → on équipe 10 bus.\nPendant 3 jours → surveillance 24h/24.\nAprès → rapport complet avec preuves concrètes.\n\nZéro risque, que des preuves 📊",
-      isUser: false,
-      isSpecial: true,
-      timestamp: "14:50"
-    }
+ 
   ];
 
   // Fonction pour scroller automatiquement vers le bas
@@ -1381,7 +1510,7 @@ function FinalSpeechComponent({ onStartJourney }: { onStartJourney: () => void }
         animate={{ scale: 1, opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
       >
-        {/* Header WhatsApp style */}
+        {/* Header WhatsApp style - Groupe */}
         <motion.div 
           className="bg-[#075E54] p-4 flex items-center gap-3"
           initial={{ y: -20, opacity: 0 }}
@@ -1389,27 +1518,15 @@ function FinalSpeechComponent({ onStartJourney }: { onStartJourney: () => void }
           transition={{ delay: 0.8, duration: 0.6 }}
         >
           <div className="w-10 h-10 rounded-full bg-gradient-to-r from-teal-500 to-blue-600 flex items-center justify-center">
-            <img 
-              src="/images/logo-annimation.png" 
-              alt="AI-Karangué" 
-              className="w-8 h-8 object-cover rounded-full"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-                const fallback = document.createElement('div');
-                fallback.className = 'w-8 h-8 flex items-center justify-center text-lg';
-                fallback.innerHTML = '🤖';
-                target.parentNode?.appendChild(fallback);
-              }}
-            />
+            <span className="text-white font-bold text-lg">🚍</span>
           </div>
           <div className="flex-1">
-            <h2 className="text-white font-semibold text-lg leading-tight">AI-Karangué</h2>
-            <p className="text-green-200 text-xs opacity-90">En ligne maintenant</p>
+            <h2 className="text-white font-semibold text-lg leading-tight">Transport Sénégal 🇸🇳</h2>
+            <p className="text-green-200 text-xs opacity-90">MITTA, Dem Dikk, AFTU, +1 autre</p>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            <span className="text-green-200 text-xs font-medium">Live</span>
+            <span className="text-green-200 text-xs font-medium">4 en ligne</span>
           </div>
         </motion.div>
 
@@ -1432,7 +1549,7 @@ function FinalSpeechComponent({ onStartJourney }: { onStartJourney: () => void }
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ duration: 0.6, type: "spring" }}
                 >
-                  {!msg.isUser && (
+                  {!msg.isUser && !msg.isSystem && (
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center text-lg overflow-hidden border-2 border-white shadow-lg ${
                       msg.isSpecial 
                         ? 'bg-gradient-to-br from-orange-500 to-red-600 border-orange-300' 
@@ -1461,37 +1578,46 @@ function FinalSpeechComponent({ onStartJourney }: { onStartJourney: () => void }
                   
                   <div className={`flex flex-col max-w-[75%] ${msg.isUser ? 'items-end' : 'items-start'}`}>
                     {/* Nom et timestamp */}
-                    <div className={`flex items-center gap-2 mb-2 px-1 ${
-                      msg.isUser ? 'flex-row-reverse' : 'flex-row'
-                    }`}>
-                      <span className={`font-bold text-xs uppercase tracking-wider ${
-                        msg.isUser 
-                          ? 'text-blue-700' 
-                          : msg.isSpecial 
-                          ? 'text-orange-700' 
-                          : 'text-teal-700'
+                    {!msg.isSystem && (
+                      <div className={`flex items-center gap-2 mb-2 px-1 ${
+                        msg.isUser ? 'flex-row-reverse' : 'flex-row'
                       }`}>
-                        {msg.sender}
-                      </span>
-                      <span className="text-xs text-gray-500 font-medium">
-                        {msg.timestamp}
-                      </span>
-                      {msg.isSpecial && (
-                        <motion.span 
-                          className="px-2 py-1 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full text-xs font-bold shadow-md"
-                          animate={{ scale: [1, 1.05, 1] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        >
-                          ⚡ RÉVÉLATION
-                        </motion.span>
-                      )}
-                    </div>
+                        <span className={`font-bold text-xs uppercase tracking-wider ${
+                          msg.isUser 
+                            ? msg.isAdmin
+                              ? 'text-purple-700'
+                              : 'text-blue-700'
+                            : msg.isSpecial 
+                            ? 'text-orange-700' 
+                            : 'text-teal-700'
+                        }`}>
+                          {msg.sender}
+                          {msg.isAdmin && ' 👑'}
+                        </span>
+                        <span className="text-xs text-gray-500 font-medium">
+                          {msg.timestamp}
+                        </span>
+                        {msg.isSpecial && (
+                          <motion.span 
+                            className="px-2 py-1 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full text-xs font-bold shadow-md"
+                            animate={{ scale: [1, 1.05, 1] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                          >
+                            ⚡ RÉVÉLATION
+                          </motion.span>
+                        )}
+                      </div>
+                    )}
 
                     {/* Bulle de message */}
                     <motion.div
                       className={`relative px-4 py-3 rounded-2xl shadow-md max-w-full ${
-                        msg.isUser 
-                          ? 'bg-[#0084FF] text-white rounded-br-lg'
+                        msg.isSystem
+                          ? 'bg-yellow-100 text-gray-700 border border-yellow-300 rounded-lg text-center italic'
+                          : msg.isUser 
+                          ? msg.isAdmin
+                            ? 'bg-purple-600 text-white rounded-br-lg'
+                            : 'bg-[#0084FF] text-white rounded-br-lg'
                           : msg.isSpecial
                           ? 'bg-gradient-to-br from-orange-100 to-red-50 text-gray-800 border-2 border-orange-200 rounded-bl-lg'
                           : 'bg-white text-gray-800 border border-gray-200 rounded-bl-lg'
@@ -1512,11 +1638,15 @@ function FinalSpeechComponent({ onStartJourney }: { onStartJourney: () => void }
                       </p>
                       
                       {/* Petite flèche de la bulle */}
-                      <div className={`absolute top-4 w-0 h-0 ${
-                        msg.isUser
-                          ? 'right-0 translate-x-1 border-l-[8px] border-l-[#0084FF] border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent'
-                          : 'left-0 -translate-x-1 border-r-[8px] border-r-white border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent'
-                      } ${msg.isSpecial && !msg.isUser ? 'border-r-orange-100' : ''}`} />
+                      {!msg.isSystem && (
+                        <div className={`absolute top-4 w-0 h-0 ${
+                          msg.isUser
+                            ? `right-0 translate-x-1 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ${
+                                msg.isAdmin ? 'border-l-[8px] border-l-purple-600' : 'border-l-[8px] border-l-[#0084FF]'
+                              }`
+                            : 'left-0 -translate-x-1 border-r-[8px] border-r-white border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent'
+                        } ${msg.isSpecial && !msg.isUser ? 'border-r-orange-100' : ''}`} />
+                      )}
                     </motion.div>
 
                     {/* Statut de lecture (style WhatsApp) */}
@@ -1535,8 +1665,12 @@ function FinalSpeechComponent({ onStartJourney }: { onStartJourney: () => void }
                     )}
                   </div>
 
-                  {msg.isUser && (
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center text-lg overflow-hidden border-2 border-blue-300 shadow-lg">
+                  {msg.isUser && !msg.isSystem && (
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-lg overflow-hidden border-2 shadow-lg ${
+                      msg.isAdmin 
+                        ? 'bg-gradient-to-br from-purple-600 to-purple-700 border-purple-300'
+                        : 'bg-gradient-to-br from-blue-600 to-blue-700 border-blue-300'
+                    }`}>
                       {msg.avatar.startsWith('/') ? (
                         <img 
                           src={msg.avatar} 
@@ -1548,7 +1682,7 @@ function FinalSpeechComponent({ onStartJourney }: { onStartJourney: () => void }
                             target.style.display = 'none';
                             const fallback = document.createElement('div');
                             fallback.className = 'w-full h-full flex items-center justify-center text-lg text-white';
-                            fallback.innerHTML = '🚌';
+                            fallback.innerHTML = msg.sender === 'Dem Dikk' ? '🚌' : msg.sender === 'AFTU' ? '🚌' : msg.sender === 'Car Rapid' ? '🚐' : '👨🏾‍💼';
                             target.parentNode?.appendChild(fallback);
                           }}
                         />
@@ -2479,9 +2613,20 @@ function StepContent({ step, index, currentStep, moveToStep, isAnimating }: {
 }
 
 // Composant pour afficher le contenu spectaculaire des boîtes
-function SpectacularBoxContent({ content, onClose }: { content: any; onClose: () => void }) {
+function SpectacularBoxContent({ content, onClose, boxIndex }: { content: any; onClose: () => void; boxIndex?: number }) {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Pour les boîtes 1 et 2, fermer automatiquement quand la vidéo se termine
+  const handleVideoEnd = () => {
+    setIsVideoPlaying(false);
+    if (boxIndex === 0 || boxIndex === 1) {
+      // Délai court pour que l'utilisateur voie que la vidéo est terminée
+      setTimeout(() => {
+        onClose();
+      }, 1500);
+    }
+  };
 
   const toggleVideo = () => {
     if (videoRef.current) {
@@ -2541,19 +2686,19 @@ function SpectacularBoxContent({ content, onClose }: { content: any; onClose: ()
               poster="/images/video-poster.jpg"
               onPlay={() => setIsVideoPlaying(true)}
               onPause={() => setIsVideoPlaying(false)}
-              onEnded={() => setIsVideoPlaying(false)}
+              onEnded={handleVideoEnd}
               onLoadStart={() => console.log('Video loading started')}
               onCanPlay={() => console.log('Video can play')}
               onError={(e) => console.log('Video error:', e)}
               autoPlay
-              loop
-              controls={true}
+              loop={boxIndex !== 0 && boxIndex !== 1} // Pas de boucle pour les boîtes 1 et 2
+              controls={boxIndex !== 0 && boxIndex !== 1} // Pas de contrôles pour les boîtes 1 et 2
               playsInline
               preload="metadata"
               style={{ objectFit: 'cover' }}
               x-webkit-airplay="allow"
               webkit-playsinline=""
-              disablePictureInPicture
+              disablePictureInPicture={boxIndex === 0 || boxIndex === 1}
             >
               {/* Sources optimisées par ordre de préférence */}
               <source 
@@ -2571,28 +2716,39 @@ function SpectacularBoxContent({ content, onClose }: { content: any; onClose: ()
               Votre navigateur ne supporte pas la lecture vidéo.
             </video>
             
-            {/* Overlay avec contrôles personnalisés */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Button
-                  onClick={toggleVideo}
-                  className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border-2 border-white/30 rounded-full w-20 h-20 flex items-center justify-center transition-all duration-300 hover:scale-110"
-                >
-                  {isVideoPlaying ? (
-                    <Pause size={32} />
-                  ) : (
-                    <Play size={32} className="ml-1" />
-                  )}
-                </Button>
-              </div>
-              
-              {/* Indicateur de lecture */}
-              <div className="absolute bottom-4 left-4 right-4">
-                <div className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium">
-                  {isVideoPlaying ? '🎬 En lecture...' : '▶️ Cliquez pour regarder'}
+            {/* Overlay avec contrôles personnalisés - masqué pour les boîtes 1 et 2 */}
+            {boxIndex !== 0 && boxIndex !== 1 && (
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Button
+                    onClick={toggleVideo}
+                    className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border-2 border-white/30 rounded-full w-20 h-20 flex items-center justify-center transition-all duration-300 hover:scale-110"
+                  >
+                    {isVideoPlaying ? (
+                      <Pause size={32} />
+                    ) : (
+                      <Play size={32} className="ml-1" />
+                    )}
+                  </Button>
+                </div>
+                
+                {/* Indicateur de lecture */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium">
+                    {isVideoPlaying ? '🎬 En lecture...' : '▶️ Cliquez pour regarder'}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
+            
+            {/* Indicateur spécial pour les boîtes 1 et 2 */}
+            {(boxIndex === 0 || boxIndex === 1) && (
+              <div className="absolute bottom-4 left-4 right-4 opacity-90">
+                <div className="bg-black/60 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium text-center">
+                  {isVideoPlaying ? '🎬 En cours... Fermeture automatique à la fin' : '▶️ Lecture automatique'}
+                </div>
+              </div>
+            )}
             
             {/* Effet de lueur animée */}
             <motion.div
