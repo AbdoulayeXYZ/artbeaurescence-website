@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Play, Pause, Share2, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { useAIKarangueAnalytics } from '@/hooks/useAIKarangueAnalytics';
+import { useAudioSafe } from '@/hooks/useAudioSafe';
 
 interface ExperienceState {
   phase: 'opening' | 'exploration' | 'revelation' | 'closing' | 'complete' | 'roadmap';
@@ -1203,7 +1204,37 @@ function FinalSpeechComponent({ onStartJourney }: { onStartJourney: () => void }
   const [displayedMessages, setDisplayedMessages] = useState<number[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [showContinueButton, setShowContinueButton] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  // Sons simplifiés sans hook pour éviter les problèmes
+  const playTypingSound = () => {
+    try {
+      const audio = new Audio('/images/typing.mp3');
+      audio.volume = 0.3;
+      audio.loop = true;
+      audio.play().catch(() => {});
+      return audio;
+    } catch (error) {
+      return null;
+    }
+  };
+
+  const playNotificationSound = () => {
+    try {
+      const audio = new Audio('/images/notification-sound.mp3');
+      audio.volume = 0.4;
+      audio.play().catch(() => {});
+    } catch (error) {
+      // Silencieux
+    }
+  };
+
+  // Initialiser la conversation au montage du composant
+  useEffect(() => {
+    // Démarrer immédiatement
+    setIsInitialized(true);
+  }, []);
 
   const conversation: ConversationMessage[] = useMemo(() => [
     {
@@ -1406,7 +1437,7 @@ function FinalSpeechComponent({ onStartJourney }: { onStartJourney: () => void }
     {
       sender: "MITTA",
       avatar: "/images/icone-mitta.jpeg",
-      message: "Oui c'est AI-Karangué qu'en même",
+      message: "Oui c'est AI-Karangué quand même",
       isUser: true,
       isAdmin: true,
       timestamp: "14:43"
@@ -1449,7 +1480,7 @@ function FinalSpeechComponent({ onStartJourney }: { onStartJourney: () => void }
     {
       sender: "MITTA",
       avatar: "/images/icone-mitta.jpeg",
-      message: "**MITTA** a retiré AFTU du groupe",
+      message: "Ne vous inquiètez pas, Après Dem Dikk ça sera votre tour, incha'allah !",
       isUser: false,
       isSystem: true,
       timestamp: "14:36"
@@ -1487,25 +1518,45 @@ function FinalSpeechComponent({ onStartJourney }: { onStartJourney: () => void }
   }, [displayedMessages, isTyping]);
 
   useEffect(() => {
-    if (currentMessageIndex < conversation.length) {
+    let typingAudio: HTMLAudioElement | null = null;
+    
+    if (isInitialized && currentMessageIndex < conversation.length) {
       const timer = setTimeout(() => {
         setIsTyping(true);
+        
+        // Jouer le son de frappe pendant que l'utilisateur tape
+        typingAudio = playTypingSound();
         
         setTimeout(() => {
           setDisplayedMessages(prev => [...prev, currentMessageIndex]);
           setCurrentMessageIndex(prev => prev + 1);
           setIsTyping(false);
+          
+          // Arrêter le son de frappe
+          if (typingAudio) {
+            typingAudio.pause();
+            typingAudio.currentTime = 0;
+          }
+          
+          // Jouer le son de notification de manière sécurisée pour chaque message
+          setTimeout(() => playNotificationSound(), 200);
         }, conversation[currentMessageIndex].isUser ? 2500 : 4000);
-      }, 3000);
+      }, 1500); // Délai initial réduit pour démarrer plus rapidement
 
-      return () => clearTimeout(timer);
-    } else {
+      return () => {
+        clearTimeout(timer);
+        if (typingAudio) {
+          typingAudio.pause();
+          typingAudio.currentTime = 0;
+        }
+      };
+    } else if (isInitialized && currentMessageIndex >= conversation.length) {
       // Conversation terminée
       setTimeout(() => {
         setShowContinueButton(true);
       }, 3000);
     }
-  }, [currentMessageIndex, conversation.length, conversation]);
+  }, [currentMessageIndex, conversation.length, isInitialized]);
 
   return (
     <motion.div
@@ -1862,9 +1913,9 @@ function RoadmapJourney({ onBack }: { onBack: () => void }) {
     {
       id: 2,
       number: 2,
-      title: "PILOTE GAMOU",
-      subtitle: "Installation de 10 bus Dem Dikk",
-      description: "Avant l'événement sacré du Gamou, nous équipons 10 véhicules de la flotte Dem Dikk avec AI-Karangué. Une installation discrète mais révolutionnaire qui va transformer ces bus en gardiens intelligents de la route.",
+      title: "PILOTE",
+      subtitle: "INSTALLATION",
+      description: "L'objectif est d'installer une partie de vos bus afin de mener votre à bien la phase pilote",
       color: "from-teal-600 to-green-600",
       glowColor: "shadow-teal-500/50",
       status: "next",
@@ -1872,9 +1923,9 @@ function RoadmapJourney({ onBack }: { onBack: () => void }) {
     {
       id: 3,
       number: 3,
-      title: "MONITORING GAMOU",
+      title: "MONITORING ",
       subtitle: "Surveillance en temps réel",
-      description: "Pendant les 3 jours du Gamou, nos 10 bus deviennent nos ambassadeurs technologiques. Chaque trajet, chaque donnée, chaque intervention d'AI-Karangué est méticuleusement enregistrée et analysée en temps réel.",
+      description: "Pendant cette période, nous allons ensemble de manière inclusive monitorer la flotte. Ainsi AI-Karangué sera méticuleusement exploré.",
       color: "from-green-600 to-yellow-600",
       glowColor: "shadow-green-500/50",
       status: "upcoming",
@@ -1884,7 +1935,7 @@ function RoadmapJourney({ onBack }: { onBack: () => void }) {
       number: 4,
       title: "RAPPORT DÉTAILLÉ",
       subtitle: "Insights & Recommandations",
-      description: "Dans les 48h suivant le Gamou, vous recevez un rapport complet : incidents évités, données biométriques, optimisations de trajets, économies réalisées. Une vision 360° de l'impact d'AI-Karangué sur votre flotte.",
+      description: "Nous allons explorer ensemble les differents types de rapport que AI-Karangué permet de délivrer.",
       color: "from-yellow-600 to-orange-600",
       glowColor: "shadow-yellow-500/50",
       status: "upcoming",
@@ -1894,7 +1945,7 @@ function RoadmapJourney({ onBack }: { onBack: () => void }) {
       number: 5,
       title: "VOTRE DÉCISION",
       subtitle: "L'engagement mutuel",
-      description: "5 jours après le rapport, c'est le moment de vérité. Vos impressions, votre décision, votre engagement. Si l'aventure vous convainc, nous entamons ensemble un nouveau voyage vers une flotte 100% sécurisée.",
+      description: "Vos impressions, votre décision, votre engagement. Si l'aventure vous convainc, nous entamons ensemble un nouveau voyage.",
       color: "from-orange-600 to-red-600",
       glowColor: "shadow-orange-500/50",
       status: "upcoming",
